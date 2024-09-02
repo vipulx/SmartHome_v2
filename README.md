@@ -95,7 +95,7 @@ We’re a team of six passionate developers who came together to make this proje
 
 ---
 
-### **Gunnikkaa P Gupta** - Sensor Integration Specialist
+### **Gunnikaa P Gupta** - Sensor Integration Specialist
 <img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD031.png" alt="CD031" width="200"/>
 <br>
 *“My role focuses on integrating the various sensors with the ESP32. I ensure that all sensors are properly configured and communicating with our system.”*
