@@ -119,8 +119,7 @@ We’re a team of six passionate developers who came together to make this proje
 ---
 
 ### **[Member 6 Name]** - Documentation and Testing
-![Member 6 Photo](https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png)
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="400"/>
+![Member 6 Photo]<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
 *“I’m in charge of documenting the project and testing each component to ensure everything works as expected. Clear documentation and thorough testing are key to our project's success.”*
 
 ---
