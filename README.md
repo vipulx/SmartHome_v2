@@ -1,6 +1,3 @@
-Here’s the complete README content in proper code format, with all markdown and code segments clearly distinguished:
-
-```markdown
 # 🏠 Home Automation Project using ESP32 and ESPHome
 
 ![Project Banner](https://example.com/project_banner.png)
@@ -133,16 +130,3 @@ Interested in contributing to our project? Awesome! Feel free to fork the reposi
 ## 📄 License
 This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
 
----
-
-Thank you for checking out our project! We hope you find it useful and look forward to any feedback or contributions you may have.
-
-Feel free to reach out to any of our team members if you have questions or suggestions!
-```
-
-### Key Instructions:
-- Replace placeholder image URLs like `https://example.com/your_photo.png` with actual photo links.
-- Customize the names, roles, and descriptions for each team member.
-- Add your own banner image URL to the top section (`Project Banner`). 
-
-This version presents everything consistently in code format for easy readability and copy-paste usage.
