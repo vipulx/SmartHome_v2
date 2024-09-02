@@ -88,32 +88,37 @@ Check the `home_automation_advanced.yaml` file for the full list and configurati
 
 We’re a team of six passionate developers who came together to make this project a reality. Here’s a little about each of us:
 
-### **[Your Name]** - Project Lead, Firmware Developer
-![Your Photo](https://example.com/your_photo.png)
+### **Vipul Raj** - Project Lead, Firmware Developer
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
+<br>
 *“As the project lead, I’m responsible for overseeing the development process and ensuring that everything runs smoothly. I also handle the firmware development for our ESP32 setup.”*
 
 ---
 
 ### **[Member 2 Name]** - Sensor Integration Specialist
-![Member 2 Photo](https://example.com/member2_photo.png)
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
+<br>
 *“My role focuses on integrating the various sensors with the ESP32. I ensure that all sensors are properly configured and communicating with our system.”*
 
 ---
 
 ### **[Member 3 Name]** - Hardware Designer
-![Member 3 Photo](https://example.com/member3_photo.png)
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
+<br>
 *“I design and assemble the hardware components for our project. From wiring the sensors to configuring the relay modules, I ensure that the physical setup is robust and reliable.”*
 
 ---
 
 ### **[Member 4 Name]** - Home Assistant Integration Expert
-![Member 4 Photo](https://example.com/member4_photo.png)
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
+<br>
 *“I specialize in integrating our ESP32 system with Home Assistant. My job is to ensure that users can control their home automation system easily and efficiently through the Home Assistant interface.”*
 
 ---
 
 ### **[Member 5 Name]** - Data Analyst
-![Member 5 Photo](https://example.com/member5_photo.png)
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
+<br>
 *“I analyze the data collected from our sensors and provide insights that help us improve our system. My work ensures that our project is data-driven and meets the needs of its users.”*
 
 ---
