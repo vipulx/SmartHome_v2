@@ -1,0 +1,157 @@
+esphome:
+  name: home_automation
+  platform: ESP32
+  board: esp32dev
+
+wifi:
+  ssid: "your_wifi_ssid"
+  password: "your_wifi_password"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Home Automation Fallback"
+    password: "fallback_password"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "api_password"
+
+ota:
+  password: "ota_password"
+
+# Define GPIO pins for relays
+switch:
+  - platform: gpio
+    pin: 23
+    name: "Relay 1"
+    id: relay_1
+
+  - platform: gpio
+    pin: 22
+    name: "Relay 2"
+    id: relay_2
+
+  - platform: gpio
+    pin: 21
+    name: "Relay 3"
+    id: relay_3
+
+  - platform: gpio
+    pin: 19
+    name: "Relay 4"
+    id: relay_4
+
+# Define GPIO pins for manual on/off switches
+binary_sensor:
+  - platform: gpio
+    pin: 18
+    name: "Switch 1"
+    on_press:
+      then:
+        - switch.toggle: relay_1
+
+  - platform: gpio
+    pin: 5
+    name: "Switch 2"
+    on_press:
+      then:
+        - switch.toggle: relay_2
+
+  - platform: gpio
+    pin: 17
+    name: "Switch 3"
+    on_press:
+      then:
+        - switch.toggle: relay_3
+
+  - platform: gpio
+    pin: 16
+    name: "Switch 4"
+    on_press:
+      then:
+        - switch.toggle: relay_4
+
+# Example sensor configurations (commented out, activate as needed)
+
+# Temperature Sensor (DHT11/DHT22)
+# sensor:
+#   - platform: dht
+#     pin: 4
+#     temperature:
+#       name: "Living Room Temperature"
+#     humidity:
+#       name: "Living Room Humidity"
+#     update_interval: 60s
+
+# Light Sensor (BH1750)
+# sensor:
+#   - platform: bh1750
+#     name: "Ambient Light"
+#     address: 0x23
+#     update_interval: 60s
+
+# Motion Sensor (PIR)
+# binary_sensor:
+#   - platform: gpio
+#     pin: 13
+#     name: "Motion Sensor"
+#     device_class: motion
+
+# Gas Sensor (MQ-2)
+# sensor:
+#   - platform: adc
+#     pin: 34
+#     name: "Gas Sensor"
+
+# Air Quality Sensor (MQ-135)
+# sensor:
+#   - platform: adc
+#     pin: 35
+#     name: "Air Quality Sensor"
+
+# Water Leak Sensor
+# binary_sensor:
+#   - platform: gpio
+#     pin: 12
+#     name: "Water Leak Sensor"
+#     device_class: moisture
+
+# Soil Moisture Sensor
+# sensor:
+#   - platform: adc
+#     pin: 33
+#     name: "Soil Moisture"
+
+# Sound Sensor
+# sensor:
+#   - platform: adc
+#     pin: 32
+#     name: "Sound Level"
+
+# Ultrasonic Sensor (HC-SR04)
+# sensor:
+#   - platform: ultrasonic
+#     trigger_pin: 14
+#     echo_pin: 27
+#     name: "Distance Measurement"
+#     update_interval: 60s
+
+# Pressure Sensor (BMP180)
+# sensor:
+#   - platform: bmp280
+#     temperature:
+#       name: "BMP180 Temperature"
+#     pressure:
+#       name: "BMP180 Pressure"
+#     address: 0x77
+#     update_interval: 60s
+
+# Optional Settings
+# text_sensor:
+#   - platform: version
+#     name: "ESPHome Version"
