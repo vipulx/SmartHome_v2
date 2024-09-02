@@ -1,1 +1,168 @@
+# Sensors (Commented out, uncomment and configure as needed)
 
+# Temperature and Humidity Sensor (DHT11/DHT22)
+# sensor:
+#   - platform: dht
+#     pin: 4
+#     temperature:
+#       name: "Living Room Temperature"
+#     humidity:
+#       name: "Living Room Humidity"
+#     update_interval: 60s
+
+# Light Sensor (BH1750)
+# sensor:
+#   - platform: bh1750
+#     name: "Ambient Light"
+#     address: 0x23
+#     update_interval: 60s
+
+# Motion Sensor (PIR)
+# binary_sensor:
+#   - platform: gpio
+#     pin: 13
+#     name: "Motion Sensor"
+#     device_class: motion
+
+# Gas Sensor (MQ-2)
+# sensor:
+#   - platform: adc
+#     pin: 34
+#     name: "Gas Sensor"
+
+# Air Quality Sensor (MQ-135)
+# sensor:
+#   - platform: adc
+#     pin: 35
+#     name: "Air Quality Sensor"
+
+# Water Leak Sensor
+# binary_sensor:
+#   - platform: gpio
+#     pin: 12
+#     name: "Water Leak Sensor"
+#     device_class: moisture
+
+# Soil Moisture Sensor
+# sensor:
+#   - platform: adc
+#     pin: 33
+#     name: "Soil Moisture"
+
+# Sound Sensor
+# sensor:
+#   - platform: adc
+#     pin: 32
+#     name: "Sound Level"
+
+# Ultrasonic Sensor (HC-SR04)
+# sensor:
+#   - platform: ultrasonic
+#     trigger_pin: 14
+#     echo_pin: 27
+#     name: "Distance Measurement"
+#     update_interval: 60s
+
+# Pressure Sensor (BMP180)
+# sensor:
+#   - platform: bmp280
+#     temperature:
+#       name: "BMP180 Temperature"
+#     pressure:
+#       name: "BMP180 Pressure"
+#     address: 0x77
+#     update_interval: 60s
+
+# Temperature and Humidity Sensor (Si7021)
+# sensor:
+#   - platform: si7021
+#     temperature:
+#       name: "Si7021 Temperature"
+#     humidity:
+#       name: "Si7021 Humidity"
+#     update_interval: 60s
+
+# CO2 Sensor (MH-Z19)
+# sensor:
+#   - platform: mhz19
+#     co2:
+#       name: "MH-Z19 CO2 Level"
+#     temperature:
+#       name: "MH-Z19 Temperature"
+#     update_interval: 60s
+
+# Magnetic Door Sensor (Reed Switch)
+# binary_sensor:
+#   - platform: gpio
+#     pin: 25
+#     name: "Door Sensor"
+#     device_class: door
+
+# Vibration Sensor
+# binary_sensor:
+#   - platform: gpio
+#     pin: 26
+#     name: "Vibration Sensor"
+#     device_class: vibration
+
+# Smoke Sensor (MQ-7)
+# sensor:
+#   - platform: adc
+#     pin: 36
+#     name: "Smoke Sensor"
+
+# UV Sensor (GUVA-S12SD)
+# sensor:
+#   - platform: adc
+#     pin: 39
+#     name: "UV Index"
+
+# Hall Effect Sensor
+# binary_sensor:
+#   - platform: gpio
+#     pin: 22
+#     name: "Hall Effect Sensor"
+#     device_class: magnetic_field
+
+# Flame Sensor
+# binary_sensor:
+#   - platform: gpio
+#     pin: 4
+#     name: "Flame Sensor"
+#     device_class: heat
+
+# Rain Sensor
+# binary_sensor:
+#   - platform: gpio
+#     pin: 15
+#     name: "Rain Sensor"
+#     device_class: moisture
+
+# Capacitive Soil Moisture Sensor
+# sensor:
+#   - platform: adc
+#     pin: 37
+#     name: "Capacitive Soil Moisture"
+
+# TDS Sensor (Water Quality)
+# sensor:
+#   - platform: adc
+#     pin: 38
+#     name: "TDS Level"
+
+# pH Sensor
+# sensor:
+#   - platform: adc
+#     pin: 39
+#     name: "Water pH Level"
+
+# Voltage Sensor
+# sensor:
+#   - platform: adc
+#     pin: 35
+#     name: "Voltage"
+
+# Optional Settings
+# text_sensor:
+#   - platform: version
+#     name: "ESPHome Version"
