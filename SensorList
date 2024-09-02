@@ -1,43 +1,43 @@
 Here’s a list of the ten sensors included in the ESPHome YAML configuration, along with brief descriptions of each:
 
 1. DHT11/DHT22 (Temperature and Humidity Sensor):
-   - Description**: Measures temperature and humidity. The DHT11 is less accurate and has
+   - Description: Measures temperature and humidity. The DHT11 is less accurate and has
     a lower range compared to the DHT22, but both are widely used in home automation projects.
 
-2. BH1750 (Light Sensor)**:
-   - Description**: Measures ambient light intensity in lux. It is useful for applications
+2. BH1750 (Light Sensor):
+   - Description: Measures ambient light intensity in lux. It is useful for applications
     like adjusting lighting based on natural light availability.
 
 3. PIR Sensor (Motion Sensor):
-   - Description**: Detects motion by measuring infrared light radiating from objects in 
+   - Description: Detects motion by measuring infrared light radiating from objects in 
    its field of view. Commonly used for security systems and automatic lighting.
 
-4. MQ-2 (Gas Sensor)**:
-   - Description**: Detects combustible gases like LPG, propane, methane, alcohol, and 
+4. MQ-2 (Gas Sensor):
+   - Description: Detects combustible gases like LPG, propane, methane, alcohol, and 
    hydrogen. It is often used in gas leakage detection systems.
 
-5. MQ-135 (Air Quality Sensor)**:
-   - **Description**: Measures the concentration of various gases like NH3, NOx, alcohol,
+5. MQ-135 (Air Quality Sensor):
+   - **Description: Measures the concentration of various gases like NH3, NOx, alcohol,
     benzene, smoke, and CO2. It's used for monitoring air quality.
 
 6. Water Leak Sensor**:
-   - **Description**: Detects the presence of water, indicating a leak. It's typically 
+   - **Description: Detects the presence of water, indicating a leak. It's typically 
    used in bathrooms, kitchens, or basements to alert users of potential flooding.
 
-7. Soil Moisture Sensor**:
-   - **Description**: Measures the moisture content in the soil. It's ideal for smart 
+7. Soil Moisture Sensor:
+   - **Description: Measures the moisture content in the soil. It's ideal for smart 
    irrigation systems to ensure plants receive the right amount of water.
 
-8. Sound Sensor**:
-   - Description**: Measures sound levels in the environment. It can be used to trigger 
+8. Sound Sensor:
+   - Description: Measures sound levels in the environment. It can be used to trigger 
    events based on noise levels, such as turning on lights when a certain noise threshold is reached.
 
-9. Ultrasonic Sensor (HC-SR04)**:
-   - Description**: Measures distance using ultrasonic waves. It’s commonly used for
+9. Ultrasonic Sensor (HC-SR04):
+   - Description: Measures distance using ultrasonic waves. It’s commonly used for
     object detection, liquid level measurement, and proximity sensing.
 
-10. BMP180 (Pressure Sensor)**:
-    - Description**: Measures atmospheric pressure and temperature. It is often used 
+10. BMP180 (Pressure Sensor):
+    - Description: Measures atmospheric pressure and temperature. It is often used 
     in weather stations and altitude measurement applications.
 
 These sensors cover a wide range of applications in home automation, from environmental 
