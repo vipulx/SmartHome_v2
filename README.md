@@ -102,7 +102,7 @@ We’re a team of six passionate developers who came together to make this proje
 
 ---
 
-### **Sahasra PVS ** - Hardware Designer
+### **Sahasra PVS** - Hardware Designer
 <img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD079.png" alt="CD079" width="200"/>
 <br>
 *“I design and assemble the hardware components for our project. From wiring the sensors to configuring the relay modules, I ensure that the physical setup is robust and reliable.”*
