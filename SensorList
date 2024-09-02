@@ -17,15 +17,15 @@ Here’s a list of the ten sensors included in the ESPHome YAML configuration, a
    hydrogen. It is often used in gas leakage detection systems.
 
 5. MQ-135 (Air Quality Sensor):
-   - **Description: Measures the concentration of various gases like NH3, NOx, alcohol,
+   - Description: Measures the concentration of various gases like NH3, NOx, alcohol,
     benzene, smoke, and CO2. It's used for monitoring air quality.
 
-6. Water Leak Sensor**:
-   - **Description: Detects the presence of water, indicating a leak. It's typically 
+6. Water Leak Sensor:
+   - Description: Detects the presence of water, indicating a leak. It's typically 
    used in bathrooms, kitchens, or basements to alert users of potential flooding.
 
 7. Soil Moisture Sensor:
-   - **Description: Measures the moisture content in the soil. It's ideal for smart 
+   - Description: Measures the moisture content in the soil. It's ideal for smart 
    irrigation systems to ensure plants receive the right amount of water.
 
 8. Sound Sensor:
