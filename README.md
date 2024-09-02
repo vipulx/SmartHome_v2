@@ -89,42 +89,42 @@ Check the `home_automation_advanced.yaml` file for the full list and configurati
 We’re a team of six passionate developers who came together to make this project a reality. Here’s a little about each of us:
 
 ### **Vipul Raj** - Project Lead, Firmware Developer
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD139.png" alt="Smart Switch" width="200"/>
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD139.png" alt="CD139" width="200"/>
 <br>
 *“As the project lead, I’m responsible for overseeing the development process and ensuring that everything runs smoothly. I also handle the firmware development for our ESP32 setup.”*
 
 ---
 
 ### **Gunnikkaa P Gupta** - Sensor Integration Specialist
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD031.png" alt="Smart Switch" width="200"/>
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD031.png" alt="CD031" width="200"/>
 <br>
 *“My role focuses on integrating the various sensors with the ESP32. I ensure that all sensors are properly configured and communicating with our system.”*
 
 ---
 
 ### **Sahasra PVS ** - Hardware Designer
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD031.png" alt="Smart Switch" width="200"/>
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD079.png" alt="CD079" width="200"/>
 <br>
 *“I design and assemble the hardware components for our project. From wiring the sensors to configuring the relay modules, I ensure that the physical setup is robust and reliable.”*
 
 ---
 
 ### **Meghna Suresh** - Home Assistant Integration Expert
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD067.png" alt="Smart Switch" width="200"/>
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD067.png" alt="CD067" width="200"/>
 <br>
 *“I specialize in integrating our ESP32 system with Home Assistant. My job is to ensure that users can control their home automation system easily and efficiently through the Home Assistant interface.”*
 
 ---
 
 ### **Sobhan** - Data Analyst
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD059.png" alt="Smart Switch" width="200"/>
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD059.png" alt="CD059" width="200"/>
 <br>
 *“I analyze the data collected from our sensors and provide insights that help us improve our system. My work ensures that our project is data-driven and meets the needs of its users.”*
 
 ---
 
 ### **Adriel Joseph Santhosh** - Documentation and Testing
-<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="Smart Switch" width="200"/>
+<img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD007.png" alt="CD007" width="200"/>
 <br>
 *“I’m in charge of documenting the project and testing each component to ensure everything works as expected. Clear documentation and thorough testing are key to our project's success.”*
 
