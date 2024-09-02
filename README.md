@@ -116,7 +116,7 @@ We’re a team of six passionate developers who came together to make this proje
 
 ---
 
-### **Sobhan** - Data Analyst
+### **Sobhan M** - Data Analyst
 <img src="https://github.com/Vipulraj0152/SmartHome_v2/blob/main/img/CD059.png" alt="CD059" width="200"/>
 <br>
 *“I analyze the data collected from our sensors and provide insights that help us improve our system. My work ensures that our project is data-driven and meets the needs of its users.”*
