@@ -45,7 +45,7 @@ To get started, you’ll need the following software:
 ### 1. Clone the Repository
 Start by cloning our project repository:
 ```bash
-git clone https://github.com/yourusername/home-automation-esp32.git
+git clone https://github.com/Vipulraj0152//home-automation-esp32.git
 cd home-automation-esp32
 ```
 
