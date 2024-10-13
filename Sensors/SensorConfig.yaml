@@ -10,12 +10,6 @@
 #       name: "Living Room Humidity"
 #     update_interval: 60s
 
-# Light Sensor (BH1750)
-# sensor:
-#   - platform: bh1750
-#     name: "Ambient Light"
-#     address: 0x23
-#     update_interval: 60s
 
 # Motion Sensor (PIR)
 # binary_sensor:
@@ -23,6 +17,13 @@
 #     pin: 13
 #     name: "Motion Sensor"
 #     device_class: motion
+
+# Light Sensor (BH1750)
+# sensor:
+#   - platform: bh1750
+#     name: "Ambient Light"
+#     address: 0x23
+#     update_interval: 60s
 
 # Gas Sensor (MQ-2)
 # sensor:
