@@ -1,30 +1,17 @@
 esphome:
   name: home_automation
   platform: ESP32
-  board: esp32dev
+  board: upesy_wroom
 
 wifi:
-  ssid: "wifi"
-  password: "password"
+  ssid: "Siddhartrockx"
+  password: "$iddhart@Wif@0152"
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Home Automation Fallback"
-    password: "fallback_password"
-
-captive_portal:
-
-# Enable logging
 logger:
-
-# Enable Home Assistant API
 api:
-  password: "api_password"
 
-ota:
-  password: "ota_password"
 
-# Define GPIO pins for relays
+# Relays Configuration
 switch:
   - platform: gpio
     pin: 23
@@ -46,112 +33,108 @@ switch:
     name: "Relay 4"
     id: relay_4
 
-# Define GPIO pins for manual on/off switches
+  - platform: gpio
+    pin:
+      number: 15
+      mode: OUTPUT
+      inverted: true  # Ensures the buzzer is silent when GPIO is LOW
+    name: "Buzzer"
+    id: buzzer
+    on_turn_on:
+      - while:
+          condition:
+            switch.is_on: buzzer  # Loop while the buzzer is ON
+          then:
+            - switch.turn_on: buzzer
+            - delay: 1s  # Buzzer ON for 1 second
+            - switch.turn_off: buzzer
+            - delay: 1s  # Buzzer OFF for 1 second
+
+# Toggle Switches for Manual Control
 binary_sensor:
   - platform: gpio
-    pin: 18
+    pin:
+      number: 18
+      mode: INPUT_PULLUP
     name: "Switch 1"
-    on_press:
+    on_state:
       then:
-        - switch.toggle: relay_1
+        - if:
+            condition:
+              binary_sensor.is_on: switch_1
+            then:
+              - switch.turn_on: relay_1
+            else:
+              - switch.turn_off: relay_1
+    id: switch_1
 
   - platform: gpio
-    pin: 5
+    pin:
+      number: 25
+      mode: INPUT_PULLUP
     name: "Switch 2"
-    on_press:
+    on_state:
       then:
-        - switch.toggle: relay_2
+        - if:
+            condition:
+              binary_sensor.is_on: switch_2
+            then:
+              - switch.turn_on: relay_2
+            else:
+              - switch.turn_off: relay_2
+    id: switch_2
 
   - platform: gpio
-    pin: 17
+    pin:
+      number: 17
+      mode: INPUT_PULLUP
     name: "Switch 3"
-    on_press:
+    on_state:
       then:
-        - switch.toggle: relay_3
+        - if:
+            condition:
+              binary_sensor.is_on: switch_3
+            then:
+              - switch.turn_on: relay_3
+            else:
+              - switch.turn_off: relay_3
+    id: switch_3
 
   - platform: gpio
-    pin: 16
+    pin:
+      number: 16
+      mode: INPUT_PULLUP
     name: "Switch 4"
-    on_press:
+    on_state:
       then:
-        - switch.toggle: relay_4
+        - if:
+            condition:
+              binary_sensor.is_on: switch_4
+            then:
+              - switch.turn_on: relay_4
+            else:
+              - switch.turn_off: relay_4
+    id: switch_4
 
-# Example sensor configurations (commented out, activate as needed)
+# PIR Motion Sensor
+  - platform: gpio
+    pin: 13
+    name: "Motion Sensor"
+    device_class: motion
+    filters:
+      - delayed_on: 500ms
 
-# Temperature Sensor (DHT11/DHT22)
-# sensor:
-#   - platform: dht
-#     pin: 4
-#     temperature:
-#       name: "Living Room Temperature"
-#     humidity:
-#       name: "Living Room Humidity"
-#     update_interval: 60s
-
-# Light Sensor (BH1750)
-# sensor:
-#   - platform: bh1750
-#     name: "Ambient Light"
-#     address: 0x23
-#     update_interval: 60s
-
-# Motion Sensor (PIR)
-# binary_sensor:
-#   - platform: gpio
-#     pin: 13
-#     name: "Motion Sensor"
-#     device_class: motion
-
-# Gas Sensor (MQ-2)
-# sensor:
-#   - platform: adc
-#     pin: 34
-#     name: "Gas Sensor"
-
-# Air Quality Sensor (MQ-135)
-# sensor:
-#   - platform: adc
-#     pin: 35
-#     name: "Air Quality Sensor"
-
-# Water Leak Sensor
-# binary_sensor:
-#   - platform: gpio
-#     pin: 12
-#     name: "Water Leak Sensor"
-#     device_class: moisture
-
-# Soil Moisture Sensor
-# sensor:
-#   - platform: adc
-#     pin: 33
-#     name: "Soil Moisture"
-
-# Sound Sensor
-# sensor:
-#   - platform: adc
-#     pin: 32
-#     name: "Sound Level"
-
-# Ultrasonic Sensor (HC-SR04)
-# sensor:
-#   - platform: ultrasonic
-#     trigger_pin: 14
-#     echo_pin: 27
-#     name: "Distance Measurement"
-#     update_interval: 60s
-
-# Pressure Sensor (BMP180)
-# sensor:
-#   - platform: bmp280
-#     temperature:
-#       name: "BMP180 Temperature"
-#     pressure:
-#       name: "BMP180 Pressure"
-#     address: 0x77
-#     update_interval: 60s
-
-# Optional Settings
-# text_sensor:
-#   - platform: version
-#     name: "ESPHome Version"
+# DHT11 Temperature and Humidity Sensor
+sensor:
+  - platform: dht
+    pin: 4
+    temperature:
+      name: "Room Temperature"
+      unit_of_measurement: "°C"
+      accuracy_decimals: 1
+    humidity:
+      name: "Room Humidity"
+      unit_of_measurement: "%"
+      accuracy_decimals: 1
+    update_interval: 10s
+    model: DHT11
