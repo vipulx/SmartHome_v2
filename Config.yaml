@@ -48,8 +48,7 @@ switch:
             - switch.turn_on: buzzer
             - delay: 1s  # Buzzer ON for 1 second
             - switch.turn_off: buzzer
-            - delay: 1s  # Buzzer OFF for 1 second
-
+            - delay: 1s  # Delay for 1 second before turning the buzzer on again
 # Toggle Switches for Manual Control
 binary_sensor:
   - platform: gpio
