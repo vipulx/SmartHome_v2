@@ -1,0 +1,14 @@
+# DHT11 Temperature and Humidity Sensor
+sensor:
+  - platform: dht
+    pin: 4
+    temperature:
+      name: "Room Temperature"
+      unit_of_measurement: "°C"
+      accuracy_decimals: 1
+    humidity:
+      name: "Room Humidity"
+      unit_of_measurement: "%"
+      accuracy_decimals: 1
+    update_interval: 120s
+    model: DHT11
