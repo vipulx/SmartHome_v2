@@ -4,8 +4,8 @@ esphome:
   board: esp32dev
 
 wifi:
-  ssid: "your_wifi_ssid"
-  password: "your_wifi_password"
+  ssid: "wifi"
+  password: "password"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
