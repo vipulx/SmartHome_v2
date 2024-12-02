@@ -1,0 +1,29 @@
+# Relays Configuration
+switch:
+  - platform: gpio
+    pin:
+      number: 23
+      inverted: true  # Inverted for proper relay behavior
+    name: "Relay 1"
+    id: relay_1
+
+  - platform: gpio
+    pin:
+      number: 22
+      inverted: true
+    name: "Relay 2"
+    id: relay_2
+
+  - platform: gpio
+    pin:
+      number: 21
+      inverted: true
+    name: "Relay 3"
+    id: relay_3
+
+  - platform: gpio
+    pin:
+      number: 19
+      inverted: true
+    name: "Relay 4"
+    id: relay_4
