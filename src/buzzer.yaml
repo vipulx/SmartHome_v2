@@ -1,1 +1,32 @@
 
+output:
+  - platform: gpio
+    pin: GPIO15  # Use GPIO4 (safe pin) for the buzzer
+    inverted: true
+    id: buzzer_output
+
+# Template switch to control the buzzer
+switch:
+  - platform: template
+    name: "Buzzer Control"
+    id: buzzer_switch
+    optimistic: true  # Ena1ble optimistic mode
+
+# Interval to control buzzer beeping
+interval:
+  - interval: 1s
+    then:
+      - if:
+          condition:
+            switch.is_on: buzzer_switch
+          then:
+            - lambda: |-
+                static bool state = false;
+                state = !state;
+                if (state) {
+                  id(buzzer_output).turn_on();
+                } else {
+                  id(buzzer_output).turn_off();
+                }
+          else:
+            - output.turn_off: buzzer_output
