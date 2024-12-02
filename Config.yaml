@@ -1,59 +1,67 @@
 esphome:
-  name: home_automation
+  name: homeautomation
   platform: ESP32
   board: upesy_wroom
+
 
 wifi:
   ssid: "Siddhartrockx"
   password: "$iddhart@Wif@0152"
 
+
+captive_portal:
+
 logger:
+
 api:
+
 
 
 # Relays Configuration
 switch:
   - platform: gpio
-    pin: 23
+    pin:
+      number: 23
+      inverted: true  # Inverted for proper relay behavior
     name: "Relay 1"
     id: relay_1
 
   - platform: gpio
-    pin: 22
+    pin:
+      number: 22
+      inverted: true
     name: "Relay 2"
     id: relay_2
 
   - platform: gpio
-    pin: 21
+    pin:
+      number: 21
+      inverted: true
     name: "Relay 3"
     id: relay_3
 
   - platform: gpio
-    pin: 19
+    pin:
+      number: 19
+      inverted: true
     name: "Relay 4"
     id: relay_4
 
   - platform: gpio
-    pin:1
+    pin:
       number: 15
       mode: OUTPUT
       inverted: true  # Ensures the buzzer is silent when GPIO is LOW
     name: "Buzzer"
     id: buzzer
-    on_turn_on:
-      - while:
-          condition:
-            switch.is_on: buzzer  # Loop while the buzzer is ON
-          then:
-            - switch.turn_on: buzzer
-            - delay: 1s  # Buzzer ON for 1 second
-            - switch.turn_off: buzzer
-            - delay: 1s  # Delay for 1 second before turning the buzzer on again
+
+
 # Toggle Switches for Manual Control
 binary_sensor:
   - platform: gpio
     pin:
       number: 18
+      inverted: true
       mode: INPUT_PULLUP
     name: "Switch 1"
     on_state:
@@ -70,6 +78,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: 25
+      inverted: true
       mode: INPUT_PULLUP
     name: "Switch 2"
     on_state:
@@ -86,6 +95,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: 17
+      inverted: true
       mode: INPUT_PULLUP
     name: "Switch 3"
     on_state:
@@ -102,6 +112,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: 16
+      inverted: true
       mode: INPUT_PULLUP
     name: "Switch 4"
     on_state:
@@ -117,7 +128,7 @@ binary_sensor:
 
 # PIR Motion Sensor
   - platform: gpio
-    pin: 13
+    pin: 4
     name: "Motion Sensor"
     device_class: motion
     filters:
@@ -126,7 +137,7 @@ binary_sensor:
 # DHT11 Temperature and Humidity Sensor
 sensor:
   - platform: dht
-    pin: 4
+    pin: 13
     temperature:
       name: "Room Temperature"
       unit_of_measurement: "°C"
@@ -135,5 +146,5 @@ sensor:
       name: "Room Humidity"
       unit_of_measurement: "%"
       accuracy_decimals: 1
-    update_interval: 10s
+    update_interval: 30s
     model: DHT11
