@@ -1,0 +1,70 @@
+
+# Toggle Switches for Manual Control
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 18
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Switch 1"
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: switch_1
+            then:
+              - switch.turn_on: relay_1
+            else:
+              - switch.turn_off: relay_1
+    id: switch_1
+
+  - platform: gpio
+    pin:
+      number: 25
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Switch 2"
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: switch_2
+            then:
+              - switch.turn_on: relay_2
+            else:
+              - switch.turn_off: relay_2
+    id: switch_2
+
+  - platform: gpio
+    pin:
+      number: 17
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Switch 3"
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: switch_3
+            then:
+              - switch.turn_on: relay_3
+            else:
+              - switch.turn_off: relay_3
+    id: switch_3
+
+  - platform: gpio
+    pin:
+      number: 16
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Switch 4"
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: switch_4
+            then:
+              - switch.turn_on: relay_4
+            else:
+              - switch.turn_off: relay_4
+    id: switch_4
