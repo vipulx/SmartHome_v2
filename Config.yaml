@@ -1,5 +1,5 @@
 esphome:
-  name: homeautomation
+  name: esphome
   platform: ESP32
   board: upesy_wroom
 
@@ -47,13 +47,35 @@ switch:
     name: "Relay 4"
     id: relay_4
 
+  - platform: template
+    name: "Buzzer Control"
+    id: buzzer_switch
+    optimistic: true  # Ena1ble optimistic mode
+
+
+output:
   - platform: gpio
-    pin:
-      number: 15
-      mode: OUTPUT
-      inverted: true  # Ensures the buzzer is silent when GPIO is LOW
-    name: "Buzzer"
-    id: buzzer
+    pin: GPIO15
+    inverted: true
+    id: buzzer_output
+
+interval:
+  - interval: 1s
+    then:
+      - if:
+          condition:
+            switch.is_on: buzzer_switch
+          then:
+            - lambda: |-
+                static bool state = false;
+                state = !state;
+                if (state) {
+                  id(buzzer_output).turn_on();
+                } else {
+                  id(buzzer_output).turn_off();
+                }
+          else:
+            - output.turn_off: buzzer_output
 
 
 # Toggle Switches for Manual Control
@@ -126,13 +148,11 @@ binary_sensor:
               - switch.turn_off: relay_4
     id: switch_4
 
-# PIR Motion Sensor
   - platform: gpio
-    pin: 4
+    pin:
+      number: 4
     name: "Motion Sensor"
     device_class: motion
-    filters:
-      - delayed_on: 500ms
 
 # DHT11 Temperature and Humidity Sensor
 sensor:
