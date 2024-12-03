@@ -5,8 +5,8 @@ esphome:
 
 
 wifi:
-  ssid: "Siddhartrockx"
-  password: "$iddhart@Wif@0152"
+  ssid: "Wifi"
+  password: "Pass"
 
 
 captive_portal:
