@@ -1,0 +1,13 @@
+  - platform: gpio
+    pin:
+      number: 27
+      inverted: true  # Inverted logic
+    name: "Gas Leak Detector (MQ5)"
+    device_class: safety
+    icon: "mdi:gas-cylinder"
+    on_press:
+      then:
+        - logger.log: "🔥 Gas Leak Detected! Take immediate action!"
+    on_release:
+      then:
+        - logger.log: "🔥 Gas Cleared."
