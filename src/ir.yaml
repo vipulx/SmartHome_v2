@@ -1,0 +1,13 @@
+  - platform: gpio
+    pin:
+      number: 14
+      inverted: true  # Inverted logic
+    name: "Fire Detector (IR)"
+    device_class: safety
+    icon: "mdi:fire"
+    on_press:
+      then:
+        - logger.log: "🔥 Fire Detected! Take immediate action!"
+    on_release:
+      then:
+        - logger.log: "🔥 Fire Cleared."
