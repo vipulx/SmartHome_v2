@@ -1,5 +1,5 @@
 esphome:
-  name: esphome
+  name: Retrofit-Smart-Hub
   platform: ESP32
   board: upesy_wroom
 
@@ -7,7 +7,10 @@ esphome:
 wifi:
   ssid: "Wifi"
   password: "Pass"
-
+  
+wifi_fallbak:
+  ssid: "harsh"
+  password: "12345678"
 
 captive_portal:
 
