@@ -1,0 +1,168 @@
+esphome:
+  name: esphome-bedroom
+  platform: ESP32
+  board: upesy_wroom
+
+wifi:
+  ssid: "Siddhartrockx"
+  password: "Wifi_Pawwsord"
+
+captive_portal:
+
+logger:
+
+api:
+
+ota:
+- platform: esphome
+  password: "12345678"
+
+# Relays Configuration
+switch:
+  - platform: gpio
+    pin:
+      number: 23
+      inverted: true
+    name: "Relay 1 - Bedroom Night Light"
+    id: bedroom_night_light
+
+  - platform: gpio
+    pin:
+      number: 22
+      inverted: true
+    name: "Relay 2 - Bathroom Light"
+    id: bathroom_light
+
+  - platform: gpio
+    pin:
+      number: 21
+      inverted: true
+    name: "Relay 3 - Bedroom Light"
+    id: bedroom_light
+
+  - platform: gpio
+    pin:
+      number: 19
+      inverted: true
+    name: "Relay 4 - Bedroom Fan"
+    id: bedroom_fan
+
+  - platform: template
+    name: "Buzzer Control"
+    id: buzzer_switch
+    optimistic: true
+
+output:
+  - platform: gpio
+    pin: GPIO15
+    inverted: true
+    id: buzzer_output
+
+interval:
+  - interval: 1s
+    then:
+      - if:
+          condition:
+            switch.is_on: buzzer_switch
+          then:
+            - lambda: |-
+                static bool state = false;
+                state = !state;
+                if (state) {
+                  id(buzzer_output).turn_on();
+                } else {
+                  id(buzzer_output).turn_off();
+                }
+          else:
+            - output.turn_off: buzzer_output
+
+# Toggle Switches for Manual Control
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 18
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Fan Manual Control"
+    id: manual_Fan
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: manual_Fan
+            then:
+              - switch.turn_off: bedroom_fan
+            else:
+              - switch.turn_on: bedroom_fan
+
+  - platform: gpio
+    pin:
+      number: 25
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Bathroom Light Manual Control"
+    id: manual_Bathroom_light
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: manual_Bathroom_light
+            then:
+              - switch.turn_off: bathroom_light
+            else:
+              - switch.turn_on: bathroom_light
+
+  - platform: gpio
+    pin:
+      number: 17
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Bedroom Light Manual Control"
+    id: manual_bedroom_light
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: manual_bedroom_light
+            then:
+              - switch.turn_off: bedroom_light
+            else:
+              - switch.turn_on: bedroom_light
+
+  - platform: gpio
+    pin:
+      number: 16
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Bedroom Night Light Manual Control"
+    id: manual_bedroom_night_light
+    on_state:
+      then:
+        - if:
+            condition:
+              binary_sensor.is_on: manual_bedroom_night_light
+            then:
+              - switch.turn_off: bedroom_night_light
+            else:
+              - switch.turn_on: bedroom_night_light
+
+  - platform: gpio
+    pin:
+      number: 4
+    name: "Bedroom Motion Sensor"
+    device_class: motion
+
+# DHT11 Temperature and Humidity Sensor
+sensor:
+  - platform: dht
+    pin: 13
+    temperature:
+      name: "Room Temperature"
+      unit_of_measurement: "°C"
+      accuracy_decimals: 1
+    humidity:
+      name: "Room Humidity"
+      unit_of_measurement: "%"
+      accuracy_decimals: 1
+    update_interval: 30s
+    model: DHT11
