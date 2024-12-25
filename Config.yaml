@@ -32,7 +32,6 @@ switch:
   - platform: gpio
     pin:
       number: 22
-      inverted: true
     name: "Relay 2"
     id: relay_2
 
