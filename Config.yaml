@@ -62,7 +62,7 @@ output:
     id: buzzer_output
 
 interval:
-  - interval: 1s
+  - interval: 0.5s
     then:
       - if:
           condition:
