@@ -1,22 +1,21 @@
 esphome:
-  name: Retrofit-Smart-Hub
+  name: esphome-bedroom
   platform: ESP32
   board: upesy_wroom
 
-
 wifi:
-  ssid: "Wifi"
-  password: "Pass"
-  
-wifi_fallbak:
-  ssid: "harsh"
-  password: "12345678"
+  ssid: "Siddhartrockx"
+  password: "$iddhart@Wif@0152"
 
 captive_portal:
 
 logger:
 
 api:
+
+ota:
+- platform: esphome
+  password: "12345678"
 
 
 
@@ -25,35 +24,67 @@ switch:
   - platform: gpio
     pin:
       number: 23
-      inverted: true  # Inverted for proper relay behavior
-    name: "Relay 1"
-    id: relay_1
+      inverted: true
+    name: "Relay 1 - Bedroom Night Light"
+    id: bedroom_night_light
 
   - platform: gpio
     pin:
       number: 22
-    name: "Relay 2"
-    id: relay_2
+      inverted: true
+    name: "Relay 2 - Bathroom Light"
+    id: bathroom_light
 
   - platform: gpio
     pin:
       number: 21
       inverted: true
-    name: "Relay 3"
-    id: relay_3
+    name: "Relay 3 - Bedroom Light"
+    id: bedroom_light
+    restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: gpio
     pin:
       number: 19
       inverted: true
-    name: "Relay 4"
-    id: relay_4
+    name: "Relay 4 - Bedroom Fan"
+    id: bedroom_fan
+    restore_mode: RESTORE_DEFAULT_OFF
+
+
+#   - platform: template
+#     name: "Buzzer Control"
+#     id: buzzer_switch
+#     optimistic: true
+
+# output:
+#   - platform: gpio
+#     pin: GPIO15
+#     inverted: true
+#     id: buzzer_output
+
+# interval:
+#   - interval: 0.5s
+#     then:
+#       - if:
+#           condition:
+#             switch.is_on: buzzer_switch
+#           then:
+#             - lambda: |-
+#                 static bool state = false;
+#                 state = !state;
+#                 if (state) {
+#                   id(buzzer_output).turn_on();
+#                 } else {
+#                   id(buzzer_output).turn_off();
+#                 }
+#           else:
+#             - output.turn_off: buzzer_output
 
   - platform: template
     name: "Buzzer Control"
     id: buzzer_switch
-    optimistic: true  # Ena1ble optimistic mode
-
+    optimistic: true
 
 output:
   - platform: gpio
@@ -61,8 +92,19 @@ output:
     inverted: true
     id: buzzer_output
 
+number:
+  - platform: template
+    name: "Buzzer Interval"
+    id: buzzer_interval
+    optimistic: true
+    min_value: 0.1
+    max_value: 2.0
+    step: 0.1
+    unit_of_measurement: "s"
+    icon: "mdi:timer"
+
 interval:
-  - interval: 0.5s
+  - interval: 0.1s
     then:
       - if:
           condition:
@@ -70,14 +112,22 @@ interval:
           then:
             - lambda: |-
                 static bool state = false;
-                state = !state;
-                if (state) {
-                  id(buzzer_output).turn_on();
-                } else {
-                  id(buzzer_output).turn_off();
+                static float interval_counter = 0;
+                interval_counter += 0.1;
+                if (interval_counter >= id(buzzer_interval).state) {
+                  state = !state;
+                  interval_counter = 0;
+                  if (state) {
+                    id(buzzer_output).turn_on();
+                  } else {
+                    id(buzzer_output).turn_off();
+                  }
                 }
           else:
             - output.turn_off: buzzer_output
+
+
+
 
 
 # Toggle Switches for Manual Control
@@ -87,88 +137,75 @@ binary_sensor:
       number: 18
       inverted: true
       mode: INPUT_PULLUP
-    name: "Switch 1"
+    name: "Fan Manual Control"
+    id: manual_Fan
     on_state:
       then:
         - if:
             condition:
-              binary_sensor.is_on: switch_1
+              binary_sensor.is_on: manual_Fan
             then:
-              - switch.turn_on: relay_1
+              - switch.turn_on: bedroom_fan
             else:
-              - switch.turn_off: relay_1
-    id: switch_1
+              - switch.turn_off: bedroom_fan
 
   - platform: gpio
     pin:
       number: 25
       inverted: true
       mode: INPUT_PULLUP
-    name: "Switch 2"
+    name: "Bathroom Light Manual Control"
+    id: manual_Bathroom_light
     on_state:
       then:
         - if:
             condition:
-              binary_sensor.is_on: switch_2
+              binary_sensor.is_on: manual_Bathroom_light
             then:
-              - switch.turn_on: relay_2
+              - switch.turn_on: bathroom_light
             else:
-              - switch.turn_off: relay_2
-    id: switch_2
+              - switch.turn_off: bathroom_light
 
   - platform: gpio
     pin:
       number: 17
       inverted: true
       mode: INPUT_PULLUP
-    name: "Switch 3"
+    name: "Bedroom Light Manual Control"
+    id: manual_bedroom_light
     on_state:
       then:
         - if:
             condition:
-              binary_sensor.is_on: switch_3
+              binary_sensor.is_on: manual_bedroom_light
             then:
-              - switch.turn_on: relay_3
+              - switch.turn_on: bedroom_light
             else:
-              - switch.turn_off: relay_3
-    id: switch_3
+              - switch.turn_off: bedroom_light
 
   - platform: gpio
     pin:
       number: 16
       inverted: true
       mode: INPUT_PULLUP
-    name: "Switch 4"
+    name: "Bedroom Night Light Manual Control"
+    id: manual_bedroom_night_light
     on_state:
       then:
         - if:
             condition:
-              binary_sensor.is_on: switch_4
+              binary_sensor.is_on: manual_bedroom_night_light
             then:
-              - switch.turn_on: relay_4
+              - switch.turn_on: bedroom_night_light
             else:
-              - switch.turn_off: relay_4
-    id: switch_4
+              - switch.turn_off: bedroom_night_light
 
   - platform: gpio
     pin:
       number: 4
-    name: "Motion Sensor"
+    name: "Bedroom Motion Sensor"
     device_class: motion
 
-  - platform: gpio
-    pin:
-      number: 27
-      inverted: true  # Inverted logic
-    name: "Gas Leak Detector (MQ5)"
-    device_class: safety
-    icon: "mdi:gas-cylinder"
-    on_press:
-      then:
-        - logger.log: "🔥 Gas Leak Detected! Take immediate action!"
-    on_release:
-      then:
-        - logger.log: "🔥 Gas Cleared."
 # DHT11 Temperature and Humidity Sensor
 sensor:
   - platform: dht
