@@ -4,8 +4,8 @@ esphome:
   board: upesy_wroom
 
 wifi:
-  ssid: "Siddhartrockx"
-  password: "$iddhart@Wif@0152"
+  ssid: "Wifi"
+  password: "pass"
 
 captive_portal:
 
