@@ -127,9 +127,6 @@ interval:
             - output.turn_off: buzzer_output
 
 
-
-
-
 # Toggle Switches for Manual Control
 binary_sensor:
   - platform: gpio
