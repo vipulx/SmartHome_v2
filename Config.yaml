@@ -1,7 +1,7 @@
 esphome:
   name: esphome-bedroom
   platform: ESP32
-  board: upesy_wroom
+  board: upesy_wroom #EspBoard
 
 wifi:
   ssid: "Wifi"
