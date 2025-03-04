@@ -151,11 +151,6 @@ sensor:
 #     pin: 38
 #     name: "TDS Level"
 
-# pH Sensor
-# sensor:
-#   - platform: adc
-#     pin: 39
-#     name: "Water pH Level"
 
 # Voltage Sensor
 # sensor:
@@ -163,7 +158,13 @@ sensor:
 #     pin: 35
 #     name: "Voltage"
 
-# Optional Settings
-# text_sensor:
-#   - platform: version
-#     name: "ESPHome Version"
+Optional Settings
+text_sensor:
+  - platform: version
+    name: "ESPHome Version"
+
+pH Sensor
+sensor:
+  - platform: adc
+    pin: 39
+    name: "Water pH Level"
