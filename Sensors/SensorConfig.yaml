@@ -1,14 +1,14 @@
 # Sensors (Commented out, uncomment and configure as needed)
 
-# Temperature and Humidity Sensor (DHT11/DHT22)
-# sensor:
-#   - platform: dht
-#     pin: 4
-#     temperature:
-#       name: "Living Room Temperature"
-#     humidity:
-#       name: "Living Room Humidity"
-#     update_interval: 60s
+Temperature and Humidity Sensor (DHT11/DHT22)
+sensor:
+  - platform: dht
+    pin: 4
+    temperature:
+      name: "Living Room Temperature"
+    humidity:
+      name: "Living Room Humidity"
+    update_interval: 60s
 
 
 # Motion Sensor (PIR)
