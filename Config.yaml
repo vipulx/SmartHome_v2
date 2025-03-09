@@ -4,7 +4,7 @@ esphome:
   board: upesy_wroom #EspBoard
 
 wifi:
-  ssid: "Wifi"
+  ssid: "Wifi_ssid"
   password: "pass"
 
 captive_portal:
